@@ -4,10 +4,10 @@ namespace Activity5._2._1
 {
     class GeneratePrimes
     {
-        Random r;
+        private Random r;
         public GeneratePrimes()
         {
-            r = new Random();
+            this.r = new Random((int)DateTime.Now.Ticks);
         }
         private bool IsPrime(int n)
         {
@@ -20,12 +20,24 @@ namespace Activity5._2._1
         }
         public void Prime()
         {
-            //ToDo
+            int n;
+            do{
+                n = this.r.Next(2,1000);
+            }while(!IsPrime(n));
+            Console.WriteLine($"Random Prime: {n}");
         }
 
         public void Prime(int n)
         {
-            //ToDo
+            int m;
+            Console.WriteLine($"{n} Random Primes: ");
+            for(int i = 1; i <= n; i++)
+            {
+                do{
+                  m = this.r.Next(2,1000);
+                }while(!IsPrime(m));
+                Console.Write($"{m} ");
+            }
         }
         public void Prime(int a, int b)
         {

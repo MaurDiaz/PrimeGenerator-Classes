@@ -20,11 +20,11 @@ namespace Activity5._2._1
         }
         public void Prime()
         {
-            int n;
+            int m;
             do{
-                n = this.r.Next(2,1000);
-            }while(!IsPrime(n));
-            Console.WriteLine($"Random Prime: {n}");
+                m = this.r.Next(2,1000);
+            }while(!IsPrime(m));
+            Console.WriteLine($"Random Prime: {m}");
         }
 
         public void Prime(int n)
@@ -41,11 +41,18 @@ namespace Activity5._2._1
         }
         public void Prime(int a, int b)
         {
-            //ToDo
+            Console.WriteLine($"All primes in the range {a} and {b}: ");
+            for(int i = a; i <= b; i++)
+            {
+                if(IsPrime(i))
+                {
+                    Console.Write($"{i} ");
+                }
+            }
         }
         public void Prime(int c, int a, int b)
         {
-           //ToDo
+           
         }
     }
 }

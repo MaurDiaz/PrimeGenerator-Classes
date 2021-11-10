@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Activity5._2._1
 {
@@ -22,7 +23,7 @@ namespace Activity5._2._1
         {
             int m;
             do{
-                m = this.r.Next(2,1000);
+                m = this.r.Next(2,10000);
             }while(!IsPrime(m));
             Console.WriteLine($"Random Prime: {m}");
         }
@@ -34,7 +35,7 @@ namespace Activity5._2._1
             for(int i = 1; i <= n; i++)
             {
                 do{
-                  m = this.r.Next(2,1000);
+                  m = this.r.Next(2,10000);
                 }while(!IsPrime(m));
                 Console.Write($"{m} ");
             }
@@ -52,7 +53,31 @@ namespace Activity5._2._1
         }
         public void Prime(int c, int a, int b)
         {
+           List<int> pList = new List<int>();
            
+           for(int j = a; j <= b; j++)
+           {
+                if(IsPrime(j))
+                {
+                    pList.Add(j);
+                }
+           }
+            if(pList.Count < c)
+            {
+                Console.WriteLine($"There are only {pList.Count} primes in the range {a} to {b}: ");
+                foreach(int prime in pList)
+                {
+                    Console.Write($"{prime} ");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"First {c} primes in the range {a} to {b}: ");
+                for(int i = 0; i < c; i++)
+                {
+                    Console.Write($"{pList[i]} ");
+                }
+            }
         }
     }
 }
